@@ -1,0 +1,940 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Introducción paso a paso al framework móvil [Flutter]">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/ales-flutter-etape-par-etape-sept-2026/despliegue.html">
+      
+      
+        <link rel="prev" href="caso-de-estudio-el-cliente-flutter-de-la-aplicacion-rdvmedecins.html">
+      
+      
+        <link rel="next" href="conclusion.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>12. Despliegue - Introducción paso a paso al framework móvil [Flutter]</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Introducción paso a paso al framework móvil [Flutter]";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#12-despliegue" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Introducción paso a paso al framework móvil [Flutter]" class="md-header__button md-logo" aria-label="Introducción paso a paso al framework móvil [Flutter]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introducción paso a paso al framework móvil [Flutter]
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              12. Despliegue
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/ales-flutter-etape-par-etape-sept-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Introducción paso a paso al framework móvil [Flutter]" class="md-nav__button md-logo" aria-label="Introducción paso a paso al framework móvil [Flutter]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introducción paso a paso al framework móvil [Flutter]
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/ales-flutter-etape-par-etape-sept-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenido
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="configuracion-del-entorno-de-trabajo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Configuración del entorno de trabajo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="primeros-pasos-con-flutter.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Primeros pasos con Flutter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="widgets.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Widgets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="enrutamiento.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Enrutamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="procesamiento-asincrono-y-estado-compartido.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Procesamiento asíncrono y estado compartido
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="internacionalizacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Internacionalización
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="el-servidor-rdvmedecins-una-caja-negra.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. El servidor RdvMedecins, una caja negra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="comunicacion-con-el-servidor.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Comunicación con el servidor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conclusion-provisional.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Conclusión provisional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="caso-de-estudio-el-cliente-flutter-de-la-aplicacion-rdvmedecins.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Caso de estudio: el cliente Flutter de la aplicación RdvMedecins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Despliegue
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="despliegue.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Despliegue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#121-la-version-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1. La versión web
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#122-la-version-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.2. La versión Android
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#123-el-servidor-de-produccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.3. El servidor de producción
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conclusion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Conclusión
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="apendices.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Apéndices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="12-despliegue">12. <span style="color: #2e74b5">Despliegue</span></h1>
+<p>Durante el desarrollo, la aplicación se ejecuta bajo el control de <em>[flutter run]</em>: en modo “debug”, que es más lento, con recarga en caliente y verificaciones (<em>[assert]</em>) realizadas por <em>[Flutter]</em>. Para desplegarla, se <strong>compila</strong> en modo “release”: código optimizado, sin herramientas de desarrollo. Se compila una versión por plataforma.</p>
+<h2 id="121-la-version-web">12.1. <span style="color: #2e74b5">La versión web</span></h2>
+<ol>
+<li>Compile el cliente. En la carpeta <strong><em>[rdvmedecins_flutter]</em></strong>:</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>flutter build web --no-web-resources-cdn
+</code></pre></div></td></tr></table></div>
+<p>La consola muestra:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span>
+<span class="normal"><a href="#__codelineno-1-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>Compiling lib\main.dart for the Web...
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>Wasm dry run succeeded. Consider building and testing your application with the `--wasm` flag. See docs for more info: https://docs.flutter.dev/platform-integration/web/wasm
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>Use --no-wasm-dry-run to disable these warnings.
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>Expected to find fonts for (MaterialIcons, packages/cupertino_icons/CupertinoIcons), but found (MaterialIcons). This usually means you are referring to font families in an IconData class but not including them in the assets section of your pubspec.yaml, are missing the package that would include them, or are missing "uses-material-design: true".
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>Font asset "MaterialIcons-Regular.otf" was tree-shaken, reducing it from 1645184 to 9004 bytes (99.5% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>Compiling lib\main.dart for the Web...                             70,5s
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>√ Built build\web
+</code></pre></div></td></tr></table></div>
+<p>Dos advertencias, sin consecuencias: la compilación a <em>[WebAssembly]</em> sería posible (véase más abajo); una biblioteca de <em>[Flutter]</em> hace referencia a íconos del estilo <em>[iOS]</em> (<em>[CupertinoIcons]</em>), que la aplicación no utiliza.</p>
+<p>El compilador <em>[dart2js]</em> compiló toda la aplicación (<em>[Dart]</em>, <em>[Flutter]</em> y los paquetes) a <em>[JavaScript]</em>, en la carpeta <strong><em>[build/web/]</em></strong>:</p>
+<ul>
+  <li><i><b>[index.html]</b></i>: LA página de la aplicación, que carga <i><b>[flutter_bootstrap.js]</b></i>, luego <i><b>[main.dart.js] </b></i>(3.5 MB, aproximadamente 1 MB una vez comprimido por el servidor): NUESTRO código, junto con todo el código de <i>[Flutter] </i>y de los paquetes, optimizado. <i>[Flutter] </i>no genera HTML: la aplicación dibuja cada píxel por sí misma en un lienzo (canvas), con el mismo motor que en el teléfono;
+  </li>
+  <li><i><b>[canvaskit/]</b></i>: este motor de renderizado (<i>[Skia]</i>, compilado a <i>[WebAssembly]</i>: <i><b>[canvaskit.wasm]</b></i>, 7 MB). Sin la opción <i><b>[--no-web-resources-cdn]</b></i>, se descargaría desde un servidor de <i>[Google]</i>; con ella, se incluye con la aplicación, que ya no depende de ningún sitio externo;
+  </li>
+  <li><i><b>[assets/]</b></i>: los recursos de <i>[pubspec.yaml] </i>(diccionarios, fuentes). Los íconos pasan por “tree-shaking”: solo se conservan en la fuente de íconos los que usa la aplicación;
+  </li>
+  <li>En la primera carga, el navegador descarga unos cuantos megabytes (principalmente el motor de renderizado) y luego los guarda en caché. Esta es la principal debilidad de <i>[Flutter] </i>para la web: se adapta mejor a las aplicaciones (que se abren y se usan durante periodos prolongados) que a los sitios web (que se recorren brevemente).
+  </li>
+</ul>
+
+<p>La opción <strong><em>[--wasm]</em></strong> compila la aplicación como <em>[WebAssembly]</em> en lugar de <em>[JavaScript]</em>: es más rápida en los navegadores que la admiten (versiones recientes de <em>[Chrome]</em>, <em>[Edge]</em> y <em>[Firefox]</em>); los demás navegadores reciben automáticamente la versión <em>[JavaScript]</em>.</p>
+<ol>
+<li>Colóquela en el servidor. Copie el CONTENIDO de la carpeta [build/web/] en una carpeta llamada <strong><em>[client/]</em></strong> en la raíz del servidor JSON (<strong><em>[rdvmedecins-nestjs-json/client/index.html]</em></strong>, <strong><em>[rdvmedecins-nestjs-json/client/main.dart.js]</em></strong>...), luego reinicie el servidor. Muestra:</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>[Nest] LOG [RdvMedecins] web client served from .../rdvmedecins-nestjs-json/client
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>[Nest] LOG [RdvMedecins] JSON server started: http://localhost:8080/api
+</code></pre></div></td></tr></table></div>
+<p>La aplicación completa ya está disponible en http://localhost:8080. El servidor sirve los archivos del cliente y devuelve <strong><em>[index.html]</em></strong> para cualquier otra dirección fuera de /api: recargar la página /schedule funciona (es el enrutador del cliente el que la muestra). El archivo <em>[src/web/client-spa.ts]</em> del servidor se encarga de esta tarea. La aplicación es servida por el servidor de la API: la dirección relativa de <em>[config.dart]</em> (<strong><em>[&#x27;&#x27;]</em></strong>, o <strong><em>[/api/...]</em></strong>) es correcta.</p>
+<p>También puede probar la versión compilada sin el servidor JSON, con cualquier servidor de archivos, pero las solicitudes a /api fallarán.</p>
+<h2 id="122-la-version-android">12.2. <span style="color: #2e74b5">La versión Android</span></h2>
+<ol>
+<li>Compile la aplicación, indicando la dirección del servidor:</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>flutter build apk --dart-define=SERVER=http://192.168.1.20:8080
+</code></pre></div></td></tr></table></div>
+<p>La consola muestra (para un APK compilado sin <strong><em>[--dart-define]</em></strong>):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>Running Gradle task 'assembleRelease'...
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>Font asset "MaterialIcons-Regular.otf" was tree-shaken, reducing it from 1645184 to 3400 bytes (99.8% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>Running Gradle task 'assembleRelease'...                          193,4s
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>√ Built build\app\outputs\flutter-apk\app-release.apk (53.5MB)
+</code></pre></div></td></tr></table></div>
+<p>(Se eliminaron algunas advertencias sobre <em>[Gradle]</em> y <em>[Java]</em>, que no tuvieron ningún efecto.) La primera compilación tarda mucho: <em>[Gradle]</em> descarga sus propias herramientas y bibliotecas; las compilaciones posteriores son mucho más rápidas.</p>
+<p>El compilador de <em>[Dart]</em> tradujo la aplicación a código máquina para las tres familias de procesadores de los teléfonos <em>[Android]</em> (ARM de 32 bits, ARM de 64 bits, x86 de 64 bits), y la herramienta de compilación de <em>[Android]</em> (<em>[Gradle]</em>) la empaquetó, junto con el motor de <em>[Flutter]</em>, en un archivo <strong>APK</strong>: el formato de instalación de aplicaciones de <em>[Android]</em>. Contiene tres copias de la aplicación y de su motor (una por familia de procesadores), lo que explica su tamaño. <strong><em>[--split-per-abi]</em></strong> generaría tres archivos APK más pequeños, uno por familia de procesadores; un “App Bundle” (véase más abajo) permite que la tienda entregue solo lo que necesita cada teléfono.</p>
+<ol>
+<li>Instálela. Con el teléfono conectado a la computadora (cable USB, depuración por USB habilitada):</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>flutter install
+</code></pre></div></td></tr></table></div>
+<p>También puede copiar el archivo APK en el teléfono y abrirlo: <em>[Android]</em> le pedirá entonces que permita la instalación de aplicaciones “de orígenes desconocidos”.</p>
+<ol>
+<li>Para una versión de producción real:</li>
+</ol>
+<ul>
+  <li>la aplicación debe estar <b>firmada </b>con una clave propia del desarrollador: el proyecto generado por <i>[flutter create] </i>firma la versión “release” con la clave de depuración, lo cual es suficiente para pruebas pero no para una tienda. La documentación de <i>[Flutter]</i> (“Build and release an Android app”) describe cómo crear la clave y configurar <i>[Gradle]</i>;
+  </li>
+  <li><i>[Google Play Store] </i>espera un “Android App Bundle” en lugar de un APK: <i><b>[flutter build appbundle]</b></i>;
+  </li>
+  <li>El nombre y el ícono de la aplicación se configuran en <i><b>[android/app/src/main/AndroidManifest.xml] </b></i>(<i><b>[android:label]</b></i>) y <i><b>[android/app/src/main/res/mipmap-*/]</b></i>;
+  </li>
+  <li>El servidor debe configurarse con HTTPS (se transmiten contraseñas), y la línea <i><b>[android:usesCleartextTraffic=&quot;true&quot;] </b></i>se elimina del manifiesto.
+  </li>
+</ul>
+
+<h2 id="123-el-servidor-de-produccion">12.3. <span style="color: #2e74b5">El servidor de producción</span></h2>
+<p>En una producción real, no olvide el archivo <em>[.env]</em> en el servidor:</p>
+<ul>
+  <li>un <i>[JWT_SECRET]</i> largo y aleatorio;
+  </li>
+  <li>un <i>[CAPTCHA_TEST]</i> vacío;
+  </li>
+  <li><i>[COOKIE_SECURE=true] </i>si el sitio se sirve mediante HTTPS (debe ser así). El cliente móvil envía la cookie independientemente de esta opción: es el navegador el que la hace cumplir;
+  </li>
+  <li><i>[TRUST_PROXY=true] </i>si el servidor está detrás de un proxy (<i>[nginx]</i>...), para que el límite de intentos vea la dirección IP real de los clientes.
+  </li>
+</ul>
+
+<p>Luego se inicia el servidor compilado: <em>[npm run build]</em>, seguido de <em>[npm run start:prod]</em>.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        Este tutorial, escrito por la IA <strong>Claude</strong> de Anthropic a petición de <strong>Serge Tahé</strong>, se pone a disposición del público bajo los términos de la
+        <em>licencia Creative Commons Atribución – No Comercial –
+        Compartir Igual 3.0 No adaptada</em>.
+
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
